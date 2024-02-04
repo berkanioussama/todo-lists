@@ -11,7 +11,7 @@ const Navs = () => {
     
     return (
         <Tabs defaultValue="Daily" className="">
-            <div className="flex justify-center items-center p-4">
+            <div className="flex justify-center items-center px-4 mt-2 mb-8">
                 <TabsList>
                     <TabsTrigger value="Daily" onClick={()=> store.subject = "Daily"} >Daily</TabsTrigger>
                     <TabsTrigger value="Weekly" onClick={()=> store.subject = "Weekly"}>Weekly</TabsTrigger>

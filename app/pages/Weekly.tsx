@@ -27,18 +27,18 @@ const Weekly = () => {
             {
                 dailyTodo.map((todo: Todo)=>(
                     <div key={todo.id}>
-                        <div className="flex justify-between items-center gap-2 space-x-2">
+                        <div className="flex justify-between items-center gap-2">
                             <div className="flex gap-4" 
                             >
                                 <Checkbox id={todo.text} onClick={()=> store.toggle(todo.id)} checked={todo.done} />
                                 <label
                                     htmlFor={todo.text}
-                                    className="text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    className={`text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${todo.done ? 'line-through' : ''}`}
                                 >
                                     {todo.text}
                                 </label>
                             </div>
-                            <Badge color="danger" onClick={() => store.delete(todo.id)}>Delete</Badge>
+                            <Badge variant="secondary" onClick={() => store.delete(todo.id)}>Delete</Badge>
                         </div>
                         <Separator className="my-4"/>
                     </div>
