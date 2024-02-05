@@ -5,6 +5,7 @@ import store from "../store/store";
 
 import { Checkbox } from "@/components/ui/checkbox"
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
 
 type Filter = 'Daily' | 'Weekly' | 'Monthly'
 
@@ -15,6 +16,7 @@ type Todo = {
     done: boolean
 }
 
+
 const Daily = () => {
 
     const snap = useSnapshot(store)
@@ -24,7 +26,7 @@ const Daily = () => {
     return (
         <div className="px-6">
             {
-                dailyTodo.map((todo: Todo)=>(
+                dailyTodo?.map((todo: Todo)=>(
                     <div key={todo.id} className="flex justify-between items-center gap-2 bg-white p-4 rounded-md mb-4">
                         <div className="flex gap-4 items-center" >
                             <Checkbox id={todo.text} onClick={()=> store.toggle(todo.id)} checked={todo.done} />

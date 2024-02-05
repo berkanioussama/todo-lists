@@ -1,3 +1,5 @@
+'use client'
+
 import Daily from "@/app/pages/Daily";
 import Monthly from "@/app/pages/Monthly";
 import Weekly from "@/app/pages/Weekly";

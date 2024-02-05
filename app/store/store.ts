@@ -1,4 +1,5 @@
-import { proxy } from 'valtio'
+'use client'
+import { proxy, subscribe } from 'valtio'
 
 type Filter = 'Daily' | 'Weekly' | 'Monthly'
 
@@ -40,8 +41,21 @@ interface storeProps {
     updateTodo?: (id: number, text: string) => void,
 }
 
+    const getTodo = ()=>{
+        if(typeof localStorage !== 'undefined') {
+            const jsonValue = localStorage.getItem('todoLists')
+            if (jsonValue != null){
+                return JSON.parse(jsonValue)
+            }
+        }
+        return []
+    }
+
+    const local: Todo[] = getTodo()
+
 const store = proxy<storeProps>({
-    todos: [],
+    
+    todos: local,
     newTodo: "",
     subject: "Daily",
     add() {
