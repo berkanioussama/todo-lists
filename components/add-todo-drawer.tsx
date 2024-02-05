@@ -29,7 +29,7 @@ const AddTodoDrawer = () => {
         <Drawer>
             <div className="flex w-full justify-center items-center">
                 <DrawerTrigger asChild>
-                    <Button variant="outline"><GoPlus /><span className="text-sm">Add task</span></Button>
+                    <Button variant="outline" className=" rounded-full"><GoPlus /><span className="text-sm">Add task</span></Button>
                 </DrawerTrigger>
             </div>
             <DrawerContent>

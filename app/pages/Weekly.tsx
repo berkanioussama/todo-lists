@@ -20,27 +20,23 @@ const Weekly = () => {
 
     const snap = useSnapshot(store)
 
-    const dailyTodo = snap.todos.filter((item) => { return item.subject === snap.subject})
+    const weeklyTodo = snap.todos.filter((item) => { return item.subject === snap.subject})
     
     return (
         <div className="px-8">
             {
-                dailyTodo.map((todo: Todo)=>(
-                    <div key={todo.id}>
-                        <div className="flex justify-between items-center gap-2">
-                            <div className="flex gap-4" 
+                weeklyTodo.map((todo: Todo)=>(
+                    <div key={todo.id} className="flex justify-between items-center gap-2 bg-white p-4 rounded-md mb-4">
+                        <div className="flex gap-5 items-center" >
+                            <Checkbox id={todo.text}  onClick={()=> store.toggle(todo.id)} checked={todo.done} className="w-5 h-5" />
+                            <label
+                                htmlFor={todo.text}
+                                className={`text-md font-medium leading-normal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${todo.done ? 'line-through' : ''}`}
                             >
-                                <Checkbox id={todo.text} onClick={()=> store.toggle(todo.id)} checked={todo.done} />
-                                <label
-                                    htmlFor={todo.text}
-                                    className={`text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${todo.done ? 'line-through' : ''}`}
-                                >
-                                    {todo.text}
-                                </label>
-                            </div>
-                            <Badge variant="secondary" onClick={() => store.delete(todo.id)}>Delete</Badge>
+                                {todo.text}
+                            </label>
                         </div>
-                        <Separator className="my-4"/>
+                        <Badge variant="secondary" onClick={() => store.delete(todo.id)}>Delete</Badge>
                     </div>
                 ))
             }
