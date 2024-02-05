@@ -23,7 +23,7 @@ export default function Home() {
 
   useEffect(()=>{
     localStorage.setItem('todoLists', JSON.stringify(store.todos))
-  }, [])
+  }, [store.todos])
 
 
   return (
