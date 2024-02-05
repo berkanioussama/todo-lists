@@ -10,7 +10,7 @@ const Navs = () => {
     const snap = useSnapshot(store)
     
     return (
-        <Tabs defaultValue="Daily" className="">
+        <Tabs defaultValue={snap.subject} className="">
             <div className="flex justify-center items-center px-4 mt-2 mb-8">
                 <TabsList>
                     <TabsTrigger value="Daily" onClick={()=> store.subject = "Daily"} >Daily</TabsTrigger>

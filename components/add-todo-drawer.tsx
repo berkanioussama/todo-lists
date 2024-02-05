@@ -18,9 +18,6 @@ import { Textarea } from "./ui/textarea";
 import { useSnapshot } from "valtio";
 import store from '@/app/store/store'
 
-/* */
-
-
 const AddTodoDrawer = () => {
 
     const snap = useSnapshot(store)
@@ -29,11 +26,11 @@ const AddTodoDrawer = () => {
         <Drawer>
             <div className="flex w-full justify-center items-center">
                 <DrawerTrigger asChild>
-                    <Button variant="outline" className=" rounded-full"><GoPlus /><span className="text-sm">Add task</span></Button>
+                    <Button variant="outline" size="lg" className="flex gap-4 px-5 items-center rounded-full font-semibold"><GoPlus size={20} /><span className="text-sm">Add task</span></Button>
                 </DrawerTrigger>
             </div>
             <DrawerContent>
-                <div className="mx-auto w-full max-w-sm">
+                <div className="mx-auto w-full max-w-3xl">
                     <DrawerHeader>
                         <DrawerTitle>Add Task</DrawerTitle>
                         <DrawerDescription>
@@ -45,9 +42,9 @@ const AddTodoDrawer = () => {
                         <div className="flex flex-col items-center justify-center space-x-2">
                             <Textarea placeholder="New task here..." value={snap.newTodo} onChange={(ev) => store.newTodo = ev.target.value}/>
                             <div className="flex gap-4 mt-4">
-                                <button onClick={()=> store.subject = "Daily"} className="px-2 py-1 border rounded-md">Daily</button>
-                                <button onClick={()=> store.subject = "Weekly"} className="px-2 py-1 border rounded-md">Weekly</button>
-                                <button onClick={()=> store.subject = "Monthly"} className="px-2 py-1 border rounded-md">Monthly</button>
+                                <Button variant={snap.subject === "Daily" ? 'default' : 'outline'} onClick={()=> store.subject = "Daily"} className="px-2 py-1 border rounded-md">Daily</Button>
+                                <Button variant={snap.subject === "Weekly" ? 'default' : 'outline'} onClick={()=> store.subject = "Weekly"} className="px-2 py-1 border rounded-md">Weekly</Button>
+                                <Button variant={snap.subject === "Monthly" ? 'default' : 'outline'} onClick={()=> store.subject = "Monthly"} className="px-2 py-1 border rounded-md">Monthly</Button>
                             </div>
                         </div>
                     </div>

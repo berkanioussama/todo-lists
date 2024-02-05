@@ -5,7 +5,6 @@ import Navs from "@/components/navs";
 import TopBar from "@/components/top-bar";
 import { useSnapshot } from "valtio";
 import state from '@/app/store/store'
-import Daily from "./pages/Daily";
 
 export default function Home() {
 
@@ -13,9 +12,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#f7f7f7]">
-      <TopBar/>
-      <Navs/>
-      <AddTodoDrawer/>
+      <div className="w-full max-w-3xl mx-auto">
+        <TopBar/>
+        <Navs/>
+        <AddTodoDrawer/>
+      </div>
     </main>
   );
 }
