@@ -1,5 +1,5 @@
 'use client'
-import { proxy, subscribe } from 'valtio'
+import { proxy } from 'valtio'
 
 type Filter = 'Daily' | 'Weekly' | 'Monthly'
 

@@ -5,17 +5,8 @@ import Navs from "@/components/navs";
 import TopBar from "@/components/top-bar";
 import { useSnapshot } from "valtio";
 import store from '@/app/store/store'
-import { useLocalStorage } from "./hooks/useLocalStorage";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-type Filter = 'Daily' | 'Weekly' | 'Monthly'
-
-type Todo = {
-    id: number
-    text: string
-    subject: Filter
-    done: boolean
-}
 
 export default function Home() {
 
@@ -24,7 +15,6 @@ export default function Home() {
   useEffect(()=>{
     localStorage.setItem('todoLists', JSON.stringify(store.todos))
   }, [store.todos])
-
 
   return (
     <main className="min-h-screen bg-[#f7f7f7]">

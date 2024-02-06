@@ -1,7 +1,7 @@
 "use client"
 
 import { useSnapshot } from "valtio";
-import store from "../store/store";
+import store from "@/app/store/store";
 
 import { Checkbox } from "@/components/ui/checkbox"
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +15,6 @@ type Todo = {
     subject: Filter
     done: boolean
 }
-
 
 const Daily = () => {
 
